@@ -25,7 +25,46 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-
+<html>
+<head>
+ <style>
+        body {
+            background: linear-gradient(to bottom right, #6a11cb, #2575fc);
+            color: black;
+            font-family: Arial, sans-serif;
+        }
+        h3
+        {
+        	font-weight: bold;
+            text-align: center;
+            text-decoration: underline;
+		}
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 50px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+        .form-control {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+        }
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .btn-primary {
+            background-color: green;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: limegreen;
+        }
+    </style>
+</head>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<div class = "container">
 <h2>Edit Product</h2>
 
 <?php if (isset($error)) { echo '<div class="alert alert-danger">' . $error . '</div>'; } ?>
@@ -41,5 +80,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
     <button type="submit" class="btn btn-primary">Update</button>
 </form>
-
+</div>
 <?php include 'footer.php'; ?>
+</html>
