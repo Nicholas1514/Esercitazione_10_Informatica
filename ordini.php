@@ -9,6 +9,8 @@ if (!isset($_SESSION['loggedin'])) {
     exit;
 }
 $id_cliente = $_SESSION['user_id'];
+$nome_cliente = $_SESSION['username'];
+
 // Recupera gli ordini dal database con i dettagli dei clienti e dei prodotti
 $query = "
    SELECT v.ID, p.nome AS nome_prodotto, v.data 
@@ -62,7 +64,8 @@ $result = $stmt->get_result();
     </style>
 </head>
 <div class = "container">
-<h2>Elenco Ordini</h2>
+<h2 class = "alert alert-info"> ID CLIENTE: <?php echo $id_cliente ?></h2>
+<h2 class = "alert alert-info">Elenco Ordini</h2>
 
 <!-- Pulsante per aggiungere un nuovo ordine -->
 <a href="add_sale.php" class="btn btn-primary mb-2">AGGIUNGI ORDINE</a>
@@ -83,7 +86,7 @@ $result = $stmt->get_result();
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
                 echo "<td>" . $row['ID'] . "</td>";
-                echo "<td>" . $row['nome_cliente'] . "</td>";
+                echo "<td>" . $nome_cliente/*$row['nome_cliente']*/ . "</td>";
                 echo "<td>" . $row['nome_prodotto'] . "</td>";
                 echo "<td>" . $row['data'] . "</td>";
                 echo "</tr>";
@@ -91,6 +94,7 @@ $result = $stmt->get_result();
         } else {
             echo "<tr><td colspan='4'>Nessun ordine trovato.</td></tr>";
         }
+     
         ?>
     </tbody>
 </table>
