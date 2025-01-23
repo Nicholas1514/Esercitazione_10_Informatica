@@ -52,7 +52,7 @@ $result = $conn->query($query);
 
 <head>
 <div class = "container">
-<h2>Prodotti</h2>
+<h2 class = "alert alert-info">Prodotti</h2>
 
 
 <table class="table table-bordered">
